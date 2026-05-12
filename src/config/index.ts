@@ -1,98 +1,178 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Alejandro Múnez — Mobile & Web Developer",
-  author: "Alejandro Múnez Cuntez",
+  title: "Em\u00EDlio Nicoletti - Mobile & Web Developer",
+  author: "Em\u00EDlio Nicoletti",
   description:
-    "Software Engineer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
+    "Flutter/Dart software engineer from Brazil with 7+ years of experience building mobile, web, and backend products for startups, SaaS, and government-backed systems.",
   lang: "en",
-  siteLogo: "/alejandro-small.jpg",
+  siteLogo: "/profile-pic-small.jpg",
   navLinks: [
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "X", href: "https://x.com/ENicoletti4453" },
+    { text: "LinkedIn", href: "https://www.linkedin.com/in/eamnicoletti" },
+    { text: "Github", href: "https://github.com/eamnicoletti" },
+    { text: "Youtube", href: "https://www.youtube.com/@nicoletti05" },
   ],
   socialImage: "/zen-og.png",
-  canonicalURL: "https://astro-zen.vercel.app",
+  canonicalURL: "https://eamnicoletti.com",
 };
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Alejandro Múnez",
+    name: "Em\u00EDlio Nicoletti",
     specialty: "Mobile & Web Developer",
     summary:
-      "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-    email: "example@email.com",
+      "Software engineer based in Brazil with experience building mobile, web, and backend products. I focus on creating polished digital experiences, with strong hands-on work in Flutter, scalable application architecture, integrations, and production-ready delivery.",
+    email: "eamnicoletti@gmail.com",
   },
   experience: [
     {
-      company: "Zalmart",
-      position: "Lead Android Developer",
-      startDate: "May 2018",
-      endDate: "Sept 2020",
+      company: "Independent SaaS & Mobile Products",
+      position: "Founder / Software Engineer",
+      startDate: "2024",
+      endDate: "Present",
       summary: [
-        "Implemented advanced memory management and code optimization techniques, resulting in a reduction in application load time by 40% and a decrease in crashes by 25%. This significantly improved user experience and increased user retention by 20%.",
-        "I led a team of developers in building and integrating new features using Jetpack Android components such as LiveData and ViewModel. This enabled us to build scalable and maintainable applications, reducing the crash rate by 20% and speeding up the time to delivery of new features by 15%.",
-        "Integrated Google Pay for in-app purchases, resulting in a 35% increase in mobile transaction revenue. Additionally, implemented Firebase Analytics to gain insights into user behavior, enabling data-driven optimizations and a 30% increase in user retention.",
+        "Built and launched Simule Agro, a production Flutter app for rural management with AI workflows, Firebase, Supabase, RevenueCat, Google Maps, FastAPI backend, localization, and GitHub Actions CI/CD.",
+        "Owned architecture, UI/UX decisions, backend integrations, subscriptions, authentication, release strategy, debugging, and production maintenance across multiple products.",
+        "Built adjacent SaaS products including Baanzai and Vokos AI, bringing the same product engineering mindset across mobile and full-stack work.",
       ],
     },
     {
-      company: "Bankit",
-      position: "Mobile Developer",
-      startDate: "Feb 2017",
-      endDate: "May 2018",
+      company: "Wavv Dating",
+      position: "Flutter Frontend Engineer / UX/UI Lead",
+      startDate: "Sep 2024",
+      endDate: "Present",
       summary: [
-        "I designed and developed a mobile application using Flutter, allowing it to be deployed on both Android and iOS with a single codebase. This reduced development time by 50% and maintenance costs by 30%, facilitating a consistent user experience on both platforms.",
-        "I integrated biometric authentication and data encryption, significantly improving the security of user data. This implementation resulted in a 40% increase in user trust and a 25% reduction in unauthorized access attempts.",
+        "Contribute to a Flutter-based AI dating app for a US remote team, implementing frontend features and improving product flows.",
+        "Led UX/UI redesign efforts while keeping the codebase maintainable through reusable patterns and collaboration with product stakeholders.",
       ],
     },
     {
-      company: "Driveer",
-      position: "Frontend Developer",
-      startDate: "Jun 2015",
-      endDate: "Oct 2016",
-      summary:
-        "Developed and integrated a real-time vehicle tracking system using WebSockets, improving accuracy and data update in the application. This functionality increased user satisfaction by 30% and reduced customer service inquiries by 25%.",
+      company: "Fiscaliza / IDAF Government Project",
+      position: "Full-Stack Flutter Engineer",
+      startDate: "2022",
+      endDate: "2024",
+      summary: [
+        "Built an offline-first Flutter mobile app and web platform used by field agents during government inspections in real field conditions.",
+        "Implemented synchronization, local persistence, forms, geospatial routines, and backend communication using Dart and Serverpod.",
+        "Worked with GitHub Actions CI/CD, GCP, and published the coordinate_converter Dart package for geospatial workflows.",
+      ],
+    },
+    {
+      company: "NerdES",
+      position: "Full-Stack Software Engineer",
+      startDate: "2017",
+      endDate: "2020",
+      summary: [
+        "Delivered custom software for startups and businesses across web, mobile, backend, planning, and project execution.",
+        "Helped build InfraA\u00E7\u00F5es, a React Native app for traffic enforcement that surpassed 100,000 Play Store downloads and generated recurring revenue.",
+        "Contributed to education and operations products using Laravel, React, React Native, MySQL, Firebase, Docker, and GCP.",
+      ],
+    },
+    {
+      company: "Freelance Design & Product Work",
+      position: "Graphic & Motion Designer / UX-Oriented Product Builder",
+      startDate: "2021",
+      endDate: "Present",
+      summary: [
+        "Delivered branding, visual identity, motion design, and advertising materials for 20+ clients across 40+ approved projects.",
+        "Strengthened product design, visual communication, and UX thinking through hands-on creative work for digital products and campaigns.",
+      ],
     },
   ],
   projects: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
+      name: "Simule Agro",
+      summary:
+        "Production Flutter app for agriculture operations with AI features, maps, subscriptions, analytics, crash monitoring, and bilingual product support.",
+      logo: "/logos/simule-agro.png",
+      linkPreview: "https://apps.apple.com/app/simule-agro/id6758867671/",
+      image: "/demos/simule-agro-demo.webp",
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/shopify-clon.png",
+      name: "Wavv Dating",
+      summary:
+        "AI dating product built for a US remote team, with Flutter frontend work focused on user flows, content-based matching experiences, and UX/UI refinement.",
+      logo: "/logos/wavv.png",
+      linkPreview: "https://apps.apple.com/us/app/wavv-dating/id6478108179",
+      image: "/demos/wavv-demo.webp",
     },
     {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
+      name: "Baanzai",
+      summary:
+        "AI-powered study platform built with Next.js, Supabase, Stripe, and adaptive learning workflows for personalized student progress.",
+      logo: "/logos/baanzai.webp",
+      linkPreview: "https://baanzai.com/",
+      image: "/demos/baanzai-demo.webp",
+    },
+    {
+      name: "Vokos AI",
+      summary:
+        "Legal task management platform for law firms with Kanban workflows, automated email-to-task pipelines, delegation features, and full-stack AI-assisted operations.",
+      logo: "/logos/vokos.png",
+      linkPreview: "https://vokosai.com.br/",
+      image: "/demos/vokosai-demo.webp",
+    },
+    {
+      name: "Fiscaliza",
+      summary:
+        "Offline-first inspection system built with Flutter, local persistence, synchronization, geospatial workflows, and Dart backend architecture.",
+      logo: "/logos/fiscaliza.png",
+      image: "/demos/fiscaliza-demo.webp",
+    },
+    {
+      name: "Coordinate Converter",
+      summary:
+        "Open-source Dart package for converting UTM, DMS, and Decimal Degrees using the WGS84 ellipsoid model, published on pub.dev.",
+      logo: "/logos/coordinater-converter.png",
+      linkPreview: "https://pub.dev/packages/coordinate_converter",
+      linkSource: "https://github.com/eamnicoletti/coordinate_converter",
+      image: "/demos/coordinate-converter-demo.webp",
+    },
+    {
+      name: "Forme Seguro",
+      summary:
+        "Graduation fund management platform with web system, mobile apps, website, and payment API built to support administration, financial control, and operational workflows.",
+      logo: "/logos/forme-seguro.png",
+      linkPreview: "https://formeseguro.com.br",
+      image: "/demos/forme-seguro-demo.webp",
+    },
+    {
+      name: "Exatamente Qu\u00EDmica",
+      summary:
+        "Education platform for students and teachers with exercises, video lessons, performance tracking, admin tools, REST API, website, and companion mobile apps.",
+      logo: "/logos/exatamente.png",
+      linkPreview: "https://www.instagram.com/exatamentequimica",
+      image: "/demos/exatamente-demo.webp",
+    },
+    {
+      name: "Infra\u00E7\u00F5es",
+      summary:
+        "Mobile app for traffic enforcement agents that reached more than 100,000 Play Store downloads and generated recurring revenue in a real operational environment.",
+      logo: "/logos/infracoes.png",
+      image: "/demos/infracoes-demo.webp",
+    },
+    {
+      name: "Resuma\u00ED",
+      summary:
+        "AI-powered PDF summarization platform built with Next.js, Clerk, OpenAI, Gemini, Stripe, NeonDB, and UploadThing for secure document upload and structured summaries.",
+      logo: "/logos/resumai.png",
+      linkSource: "https://github.com/eamnicoletti/resumai",
+      linkPreview: "https://resumai-three.vercel.app/",
+      image: "/demos/resumai-demo.webp",
     },
   ],
   about: {
     description: `
-      Hi, I’m Alejandro Múnez, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
+      Hi, I’m Emílio Nicoletti, a Flutter / Dart software engineer from Brazil with 7+ years of experience building mobile, web, and backend products. My strongest work is in mobile product development, especially Flutter apps that need clean architecture, polished UX, reliable integrations, and production-ready delivery.
 
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
+      Over the years, I’ve worked across startups, independent SaaS, software consulting, and government-backed systems. That mix made me comfortable reading unfamiliar repositories, debugging complex issues, shipping features fast, and balancing product quality with execution speed for real users.
     `,
-    image: "/alejandro-big.jpg",
+    image: "/profile-pic-big.jpg",
   },
 };
-
-// #5755ff

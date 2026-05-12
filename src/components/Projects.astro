@@ -1,6 +1,5 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
 import type { ProjectProps } from "@types";
 
 interface Props {
@@ -12,48 +11,143 @@ const { projects } = Astro.props;
 
 <Section text="Featured Projects" href="projects">
   {
-    projects.map(({ name, summary, image, linkPreview, linkSource }, index) => {
-      const top = 98 + index * 40;
-      return (
-        <div
-          style={`top: ${top}px;`}
-          class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
-        >
-          <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
-            <div class="px-6 pt-12">
-              <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
-                {name}
-              </h3>
-              <p class="text-base text-neutral">{summary}</p>
-              <div class="flex gap-5 pt-10 text-white">
-                <a
-                  href={linkSource}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+    projects.map(
+      ({ name, summary, image, logo, linkPreview, linkSource }, index) => {
+        const top = 98 + index * 40;
+        return (
+          <div
+            style={`top: ${top}px;`}
+            class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
+          >
+            <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+              <div class="px-6 pt-12">
+                {
+                  logo ? (
+                    <img
+                      class="mb-5 h-12 w-auto max-w-[220px] object-contain object-left"
+                      src={logo}
+                      alt={name}
+                    />
+                  ) : (
+                    <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+                      {name}
+                    </h3>
+                  )
+                }
+                <p class="text-base text-neutral">{summary}</p>
+                <div class="flex gap-5 pt-10 text-white">
+                  {linkSource && (
+                    <a
+                      href={linkSource}
+                      target="_blank"
+                      class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                    >
+                      Source
+                    </a>
+                  )}
+                  {linkPreview && (
+                    <a
+                      href={linkPreview}
+                      target="_blank"
+                      class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
+                    >
+                      Preview
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div class="flex items-end justify-end overflow-hidden">
+                <button
+                  type="button"
+                  class="project-image-trigger h-full w-[92%] cursor-zoom-in sm:h-[83%] sm:w-[97%]"
+                  data-image-src={image}
+                  data-image-alt={name}
+                  aria-label={`Open larger preview for ${name}`}
                 >
-                  Source
-                </a>
-                <a
-                  href={linkPreview}
-                  target="_blank"
-                  class="after:relative after:bottom-[-5px] after:content-[url(/external.svg)] hover:underline"
-                >
-                  Preview
-                </a>
+                  <img
+                    class="h-full w-full rounded-ss-xl rounded-ee-2xl object-cover object-left-top"
+                    src={image}
+                    alt={name}
+                    width="736"
+                    height="483"
+                    loading="lazy"
+                  />
+                </button>
               </div>
             </div>
-            <div class="flex items-end justify-end overflow-hidden">
-              <Image
-                class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
-                src={image}
-                alt={name}
-                width="736"
-                height="483"
-              />
-            </div>
           </div>
-        </div>
-      );
-    })
+        );
+      },
+    )
   }
 </Section>
+
+<div
+  id="project-image-lightbox"
+  class="fixed inset-0 z-[100] hidden bg-black/85 p-4 backdrop-blur-sm"
+  aria-hidden="true"
+>
+  <button
+    type="button"
+    id="project-image-close"
+    class="absolute top-4 right-4 rounded-full border border-white/20 bg-black/60 px-4 py-2 text-sm font-medium text-white"
+    aria-label="Close image preview"
+  >
+    Close
+  </button>
+  <div class="flex h-full items-center justify-center">
+    <img
+      id="project-image-preview"
+      class="max-h-[92vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl"
+      src=""
+      alt=""
+    />
+  </div>
+</div>
+
+<script>
+  const triggers = document.querySelectorAll(".project-image-trigger");
+  const lightbox = document.querySelector("#project-image-lightbox");
+  const preview = document.querySelector("#project-image-preview");
+  const closeButton = document.querySelector("#project-image-close");
+
+  const closeLightbox = () => {
+    lightbox?.classList.add("hidden");
+    lightbox?.setAttribute("aria-hidden", "true");
+    if (preview instanceof HTMLImageElement) {
+      preview.src = "";
+      preview.alt = "";
+    }
+    document.body.style.overflow = "";
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const imageSrc = trigger.getAttribute("data-image-src");
+      const imageAlt = trigger.getAttribute("data-image-alt") ?? "";
+
+      if (preview instanceof HTMLImageElement && imageSrc) {
+        preview.src = imageSrc;
+        preview.alt = imageAlt;
+      }
+
+      lightbox?.classList.remove("hidden");
+      lightbox?.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeButton?.addEventListener("click", closeLightbox);
+
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !lightbox?.classList.contains("hidden")) {
+      closeLightbox();
+    }
+  });
+</script>
