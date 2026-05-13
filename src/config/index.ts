@@ -143,19 +143,19 @@ export const SITE_CONTENT: SiteContent = {
       image: "/demos/forme-seguro-demo.webp",
     },
     {
+      name: "Infra\u00E7\u00F5es",
+      summary:
+        "Mobile app for traffic enforcement agents that reached more than 100,000 Play Store downloads and generated recurring revenue in a real operational environment. Stack: Java, Firebase and In-App Purchases.",
+      logo: "/logos/infracoes.png",
+      image: "/demos/infracoes-demo.webp",
+    },
+    {
       name: "Exatamente Qu\u00EDmica",
       summary:
         "Education platform for students and teachers with exercises, video lessons, performance tracking, admin tools, REST API, website, and companion mobile apps, built with React & React Native.",
       logo: "/logos/exatamente.png",
       linkPreview: "https://www.instagram.com/exatamentequimica",
       image: "/demos/exatamente-demo.webp",
-    },
-    {
-      name: "Infra\u00E7\u00F5es",
-      summary:
-        "Mobile app for traffic enforcement agents that reached more than 100,000 Play Store downloads and generated recurring revenue in a real operational environment. Stack: Java, Firebase and In-App Purchases.",
-      logo: "/logos/infracoes.png",
-      image: "/demos/infracoes-demo.webp",
     },
     {
       name: "Resuma\u00ED",summary:
