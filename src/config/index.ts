@@ -89,7 +89,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Simule Agro",
       summary:
-        "Production Flutter app for agriculture operations with AI features, maps, subscriptions, analytics, crash monitoring, and bilingual product support.",
+        "Production Flutter app for rural management with AI-assisted and agentic workflows, built with Flutter, Firebase (Anlytics & Crashlytics), Supabase, RevenueCat, Google Maps, FastAPI (Python) and REST API's.",
       logo: "/logos/simule-agro.png",
       linkPreview: "https://apps.apple.com/app/simule-agro/id6758867671/",
       image: "/demos/simule-agro-demo.webp",
@@ -113,7 +113,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Vokos AI",
       summary:
-        "Legal task management platform for law firms with Kanban workflows, automated email-to-task pipelines, delegation features, and full-stack AI-assisted operations.",
+        "Full-stack legal task management platform for law firms with Kanban workflows, automated email-to-task pipelines, delegation features, and AI-assisted operations, built with Next.js, FastAPI, Python, Supabase, Stripe, and Gemini.",
       logo: "/logos/vokos.png",
       linkPreview: "https://vokosai.com.br/",
       image: "/demos/vokosai-demo.webp",
@@ -121,14 +121,14 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Fiscaliza",
       summary:
-        "Offline-first inspection system built with Flutter, local persistence, synchronization, geospatial workflows, and Dart backend architecture.",
+        "Offline-first inspection system built with Flutter, local persistence, synchronization, geospatial workflows, and Dart backend architecture with Serverpod.",
       logo: "/logos/fiscaliza.png",
       image: "/demos/fiscaliza-demo.webp",
     },
     {
       name: "Coordinate Converter",
       summary:
-        "Open-source Dart package for converting UTM, DMS, and Decimal Degrees using the WGS84 ellipsoid model, published on pub.dev.",
+        "Open-source Dart package for converting UTM, DMS, and Decimal Degrees using the WGS84 ellipsoid model, published on pub.dev. Hundreds of downloads.",
       logo: "/logos/coordinater-converter.png",
       linkPreview: "https://pub.dev/packages/coordinate_converter",
       linkSource: "https://github.com/eamnicoletti/coordinate_converter",
@@ -137,7 +137,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Forme Seguro",
       summary:
-        "Graduation fund management platform with web system, mobile apps, website, and payment API built to support administration, financial control, and operational workflows.",
+        "Graduation fund management platform with web system, mobile apps, website, and payment API built to support administration, financial control, and operational workflows. Stack: Laravel, PHP, MySQL and Bootstrap.",
       logo: "/logos/forme-seguro.png",
       linkPreview: "https://formeseguro.com.br",
       image: "/demos/forme-seguro-demo.webp",
@@ -145,7 +145,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Exatamente Qu\u00EDmica",
       summary:
-        "Education platform for students and teachers with exercises, video lessons, performance tracking, admin tools, REST API, website, and companion mobile apps.",
+        "Education platform for students and teachers with exercises, video lessons, performance tracking, admin tools, REST API, website, and companion mobile apps, built with React & React Native.",
       logo: "/logos/exatamente.png",
       linkPreview: "https://www.instagram.com/exatamentequimica",
       image: "/demos/exatamente-demo.webp",
@@ -153,14 +153,13 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Infra\u00E7\u00F5es",
       summary:
-        "Mobile app for traffic enforcement agents that reached more than 100,000 Play Store downloads and generated recurring revenue in a real operational environment.",
+        "Mobile app for traffic enforcement agents that reached more than 100,000 Play Store downloads and generated recurring revenue in a real operational environment. Stack: Java, Firebase and In-App Purchases.",
       logo: "/logos/infracoes.png",
       image: "/demos/infracoes-demo.webp",
     },
     {
-      name: "Resuma\u00ED",
-      summary:
-        "AI-powered PDF summarization platform built with Next.js, Clerk, OpenAI, Gemini, Stripe, NeonDB, and UploadThing for secure document upload and structured summaries.",
+      name: "Resuma\u00ED",summary:
+      "AI case study built to explore Next.js and LLM integrations in a real deployed app, using OpenAI and Gemini in a fallback architecture alongside LangChain, Clerk, Stripe, NeonDB, and UploadThing.",
       logo: "/logos/resumai.png",
       linkSource: "https://github.com/eamnicoletti/resumai",
       linkPreview: "https://resumai-three.vercel.app/",

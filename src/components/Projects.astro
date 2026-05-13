@@ -34,7 +34,7 @@ const { projects } = Astro.props;
                     </h3>
                   )
                 }
-                <p class="text-base text-neutral">{summary}</p>
+                <p class="project-summary text-base text-neutral">{summary}</p>
                 <div class="flex gap-5 pt-10 text-white">
                   {linkSource && (
                     <a
@@ -151,3 +151,15 @@ const { projects } = Astro.props;
     }
   });
 </script>
+
+<style>
+  @media (max-width: 639px) {
+    .project-summary {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+</style>
