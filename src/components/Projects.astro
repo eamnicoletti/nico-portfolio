@@ -170,11 +170,11 @@ const { projects } = Astro.props;
 
   // Nested Accordion / Stacking Collapse Logic
   const cards = document.querySelectorAll(".project-card");
-  let staticTops = [];
+  let staticTops: number[] = [];
 
   const updateStaticTops = () => {
     // Temporarily set to static to measure true page-level offset
-    const originalPositions = [];
+    const originalPositions: string[] = [];
     cards.forEach((card) => {
       if (card instanceof HTMLElement) {
         originalPositions.push(card.style.position);
@@ -199,7 +199,7 @@ const { projects } = Astro.props;
   const onScroll = () => {
     const scrollY = window.scrollY;
     const numGroups = Math.ceil(cards.length / 3);
-    const p = [];
+    const p: number[] = [];
 
     for (let g = 0; g < numGroups - 1; g++) {
       const nextAnchorIndex = 3 * g + 3;
@@ -216,7 +216,7 @@ const { projects } = Astro.props;
     }
     p.push(0); 
 
-    const groupTops = [];
+    const groupTops: number[] = [];
     groupTops[0] = 98;
     for (let g = 1; g < numGroups; g++) {
       groupTops[g] = groupTops[g - 1] + 120 - 80 * p[g - 1];
