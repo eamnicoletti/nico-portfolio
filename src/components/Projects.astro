@@ -12,28 +12,45 @@ const { projects } = Astro.props;
 <Section text="Featured Projects" href="projects">
   {
     projects.map(
-      ({ name, summary, image, logo, linkPreview, linkSource }, index) => {
+      (
+        {
+          name,
+          summary,
+          image,
+          logo,
+          linkPreview,
+          linkSource,
+          textColor,
+          fontClass,
+        },
+        index,
+      ) => {
         const top = 98 + index * 40;
         return (
           <div
             style={`top: ${top}px;`}
-            class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
+            class="project-card sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
           >
             <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
               <div class="px-6 pt-12">
-                {
-                  logo ? (
-                    <img
-                      class="mb-5 h-12 w-auto max-w-[220px] object-contain object-left"
-                      src={logo}
-                      alt={name}
-                    />
-                  ) : (
-                    <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
-                      {name}
-                    </h3>
-                  )
-                }
+                {logo ? (
+                  <img
+                    class="mb-5 h-12 w-auto max-w-[220px] object-contain object-left"
+                    src={logo}
+                    alt={name}
+                  />
+                ) : (
+                  <h3
+                    class:list={[
+                      "mb-5 text-4xl font-medium",
+                      fontClass ? fontClass : "font-serif",
+                      textColor ? "" : "text-primary",
+                    ]}
+                    style={textColor ? { color: textColor } : undefined}
+                  >
+                    {name}
+                  </h3>
+                )}
                 <p class="project-summary text-base text-neutral">{summary}</p>
                 <div class="flex gap-5 pt-10 text-white">
                   {linkSource && (
@@ -150,6 +167,84 @@ const { projects } = Astro.props;
       closeLightbox();
     }
   });
+
+  // Nested Accordion / Stacking Collapse Logic
+  const cards = document.querySelectorAll(".project-card");
+  let staticTops = [];
+
+  const updateStaticTops = () => {
+    // Temporarily set to static to measure true page-level offset
+    const originalPositions = [];
+    cards.forEach((card) => {
+      if (card instanceof HTMLElement) {
+        originalPositions.push(card.style.position);
+        card.style.position = "static";
+      }
+    });
+
+    staticTops = Array.from(cards).map((card) => {
+      if (card instanceof HTMLElement) {
+        return card.getBoundingClientRect().top + window.scrollY;
+      }
+      return 0;
+    });
+
+    cards.forEach((card, index) => {
+      if (card instanceof HTMLElement) {
+        card.style.position = originalPositions[index];
+      }
+    });
+  };
+
+  const onScroll = () => {
+    const scrollY = window.scrollY;
+    const numGroups = Math.ceil(cards.length / 3);
+    const p = [];
+
+    for (let g = 0; g < numGroups - 1; g++) {
+      const nextAnchorIndex = 3 * g + 3;
+      if (nextAnchorIndex < cards.length) {
+        const anchorTopG = 98 + g * 40;
+        const startScroll = staticTops[nextAnchorIndex] - (anchorTopG + 120);
+        
+        let progress = (scrollY - startScroll) / 80;
+        progress = Math.max(0, Math.min(1, progress));
+        p.push(progress);
+      } else {
+        p.push(0);
+      }
+    }
+    p.push(0); 
+
+    const groupTops = [];
+    groupTops[0] = 98;
+    for (let g = 1; g < numGroups; g++) {
+      groupTops[g] = groupTops[g - 1] + 120 - 80 * p[g - 1];
+    }
+
+    cards.forEach((card, index) => {
+      if (card instanceof HTMLElement) {
+        const g = Math.floor(index / 3);
+        const k = index % 3;
+        const cardTop = groupTops[g] + k * 40 * (1 - p[g]);
+        card.style.top = `${cardTop}px`;
+      }
+    });
+  };
+
+  window.addEventListener("load", () => {
+    updateStaticTops();
+    onScroll();
+  });
+  window.addEventListener("resize", () => {
+    updateStaticTops();
+    onScroll();
+  });
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Initial calculation
+  updateStaticTops();
+  onScroll();
 </script>
 
 <style>

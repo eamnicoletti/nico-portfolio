@@ -87,6 +87,15 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
+      name: "Veylo",
+      summary:
+        "Local-first vehicle costs Flutter app (Bloc) with SQLite/Drift. Features native iOS integration (Siri, WidgetKit, MapKit, iCloud), RevenueCat, Firebase observability, and 78+ automated tests.",
+      linkPreview: "https://apps.apple.com/us/app/veylo-vehicle-costs/id6773066047",
+      image: "/demos/veylo-demo.webp",
+      textColor: "#F67836",
+      fontClass: "font-bricolage",
+    },
+    {
       name: "Simule Agro",
       summary:
         "Production Flutter app for rural management with AI-assisted and agentic workflows, built with Flutter, Firebase (Anlytics & Crashlytics), Supabase, RevenueCat, Google Maps, FastAPI (Python) and REST API's.",
