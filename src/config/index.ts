@@ -120,6 +120,15 @@ export const SITE_CONTENT: SiteContent = {
       image: "/demos/baanzai-demo.webp",
     },
     {
+      name: "OlyChat",
+      summary:
+        "SaaS for customer service automation for small businesses built with Next.js, Node.js, and Supabase, featuring AI and WhatsApp integration.",
+      linkPreview: "http://olychat.com",
+      image: "/demos/olychat-demo.webp",
+      textColor: "#9FE870",
+      fontClass: "font-righteous",
+    },
+    {
       name: "Vokos AI",
       summary:
         "Full-stack legal task management platform for law firms with Kanban workflows, automated email-to-task pipelines, delegation features, and AI-assisted operations, built with Next.js, FastAPI, Python, Supabase, Stripe, and Gemini.",
